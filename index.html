@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Yoga English</title>
+<script>
+  // Yoga English moved to /yoga/ on 2026-10-09. Same site, so her saved
+  // lines and progress are already there. Keep the screen she asked for
+  // (#/speech), and retire the old offline worker on the way.
+  var to = '/yoga/' + location.hash
+  var go = function () { location.replace(to) }
+  try {
+    navigator.serviceWorker.getRegistrations()
+      .then(function (rs) { return Promise.all(rs.filter(function (r) { return /\/studio-notes\/$/.test(r.scope) }).map(function (r) { return r.unregister() })) })
+      .then(go, go)
+  } catch (e) { go() }
+  setTimeout(go, 1500)
+</script>
+<meta http-equiv="refresh" content="3; url=/yoga/">
+<style>
+  body { margin: 0; padding: 32px 20px; background: #f6f3ee; color: #2b2a27; font: 17px/1.5 system-ui, sans-serif; }
+  a { color: #4f6b55; }
+  @media (prefers-color-scheme: dark) { body { background: #1f1e1c; color: #ece7df; } a { color: #a9c4ae; } }
+</style>
+</head>
+<body>
+<p>Yoga English đã chuyển sang <a href="/yoga/">bowenpra.github.io/yoga</a>.</p>
+<p>Yoga English has moved to <a href="/yoga/">bowenpra.github.io/yoga</a>.</p>
+</body>
+</html>
